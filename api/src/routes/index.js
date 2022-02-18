@@ -47,6 +47,7 @@ const getCountries= async () => {
 
 router.get("/countries",async (req,res)=>{
     const {name} = req.query;
+    try{
     if(name){
         const dbCountry = await Country.findAll({
             where: {name: {[Op.iLike]: `%${name}%`}}
@@ -76,6 +77,9 @@ router.get("/countries",async (req,res)=>{
     })
     dbCountries = await getDB();
     res.json(dbCountries);
+} catch (err){
+    res.status(404).send(err)
+}
 })
 
 router.get("/countries/:id",async (req,res)=>{
