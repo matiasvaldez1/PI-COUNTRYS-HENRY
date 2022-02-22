@@ -34,7 +34,7 @@ const getCountries= async () => {
 
     const getDB = async ()=>{
         return await Country.findAll({
-            attributes: ['img', 'name', 'continent', 'population', 'id'],
+            attributes: ['img', 'name', 'continent', 'population', 'id',"subregion","area"],
             include:{
                 model: Activities,
                 attributes: ['name'],
@@ -53,7 +53,7 @@ router.get("/countries",async (req,res)=>{
             where: {name: {[Op.iLike]: `%${name}%`}}
             })
         console.log(dbCountry)
-        return res.send(dbCountry)
+        return res.json(dbCountry)
     }
 
     let dbCountries = await getDB();
@@ -69,7 +69,7 @@ router.get("/countries",async (req,res)=>{
             capital: el.capital ? el.capital[0] : "This country has no capital.",
             id: el.id,
             continent: el.continent[0],
-            subregion: el.subregion ? el.subregion[0] : "No subregion found.",
+            subregion: el.subregion ? el.subregion : "No subregion found.",
             img: el.img,
             area: el.area,
         }
@@ -111,7 +111,7 @@ router.post("/activity",async (req,res)=>{
         res.status(404).send("Please complete the required fields.")
     }
     else{
-        let actCreate = await Activity.create({
+        let actCreate = await Activities.create({
             name, difficulty, duration, season
         })
     

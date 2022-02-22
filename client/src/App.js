@@ -1,8 +1,8 @@
 import {BrowserRouter as Router, Route, Switch} from "react-router-dom";
 import Home from './components/Home/Home.jsx';
 import Login from './components/Login/Login.jsx';
-import NavBar from './components/NavBar/NavBar.jsx';
 import CountryDetail from './components/CountryDetail/CountryDetail.jsx';
+import FormActivities from './components/Activities/FormActivities'
 
 function App() {
   return (
@@ -12,11 +12,13 @@ function App() {
           <Login/>
         </Route>
         <Route path='/Home'>
-          <NavBar/>
-          <Home/>
+          <Home />
         </Route>
-        <Route path='/CountryDetail'>
-          <CountryDetail/>
+        <Route path='/countries/:id'>
+          <CountryDetail />
+          </Route>
+        <Route path='/postActivity'>
+          <FormActivities />
         </Route>
       </Switch>
     </Router>
