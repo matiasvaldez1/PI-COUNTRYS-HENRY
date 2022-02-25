@@ -1,0 +1,17 @@
+.ul{
+    display: flex;
+    justify-content: center;
+}
+.li{
+    list-style: none;
+}
+.btn{
+    background-color: antiquewhite;
+    color: black;
+    border-radius: 5px;
+}
+.btn:hover{
+    transform: scale(1.2);
+    background-color: aquamarine;
+    cursor: pointer;
+}

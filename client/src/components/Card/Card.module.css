@@ -1,0 +1,24 @@
+.container{
+    display: flex;
+    justify-content: center;
+    background-color: aliceblue;
+    border-radius: 20px;
+    width: 400px;
+}
+.container:hover{
+    transform: scale(1.1);
+    transition: 500ms;
+}
+.link{
+    text-decoration: none;
+    color: black;
+    font-weight: 700;
+}
+.h1{
+    display: flex;
+    justify-content: center;
+}
+.p{
+    display: flex;
+    justify-content: center;
+}

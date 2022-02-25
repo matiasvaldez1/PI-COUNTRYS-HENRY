@@ -6,6 +6,7 @@ import { Link } from 'react-router-dom';
 
 const Form = () => {
   const dispatch = useDispatch();
+  const [errors, setErrors] = useState({});
   const [form,setForm] = useState({
     name: "",
     country: "",
@@ -13,31 +14,57 @@ const Form = () => {
     duration: "",
     season: "",
   })
+  function validate(form) {
+    let errors = {};
+    if (!form.name || !form.country || !form.duration) {
+      errors.error = "Please complete all required fields"
+    }
+    return errors;
+  }
   
-  function handleChange(e){
+ 
+  function handleChange(e) {
     setForm({
       ...form,
-      [e.target.name]: e.target.value
-    })}
-    console.log(form)
+      [e.target.name]: e.target.value,
+    });
+    setErrors(
+      validate({
+        ...form,
+        [e.target.name]: e.target.value,
+      })
+    );
+  }
 
+  
   function handleSubmit(e){
     e.preventDefault()
-    dispatch(postActivity(form))
-    alert("Actividad creada!")
+    if (
+      form.name !== "" &&
+      form.duration !== "" &&
+      form.country !== "" &&
+      form.season !== "" &&
+      form.difficulty !== ""
+    ){
+      dispatch(postActivity(form))
+      alert("Actividad creada!")
     setForm({
       name: "",
       country: "",
       difficulty: "",
       duration: "",
       season: ""
-    })
-  }
+    })}
+    else{
+      alert("Please complete the required fields")
+    }
+    }
+
 
   return (
     <div>
     <form>
-      <h1>Post your country</h1>
+      <h1>Post your activity</h1>
         <div>
           <label>Name
             <input
@@ -87,6 +114,9 @@ const Form = () => {
                 <option>Spring</option>
               </select>
             </label>
+            {errors.error && (
+              <p style={{color: "red"}}>{errors.error}</p>
+            )}
         </div>
         <button type='submit' onClick={handleSubmit}>Submit</button>
     </form>

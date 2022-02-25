@@ -1,0 +1,58 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto+Serif:wght@600&display=swap');
+
+.hero{
+    background-image: url(../utils/img6.jpg)/* no-repeat center center fixed */;
+    background-position: 90% 40%;
+    background-repeat: no-repeat;
+    background-size: cover;
+    height: 30rem;
+}
+.nav{
+    display: flex;
+    justify-content: center;
+    padding-top: 4rem;
+    padding-left: 8rem;
+}
+.input{
+    border-radius: 15px;
+    height: 3rem;
+    width: 40rem;
+}
+.btnSch{
+    border-radius: 10px;
+    cursor: pointer;
+    height: 3rem;
+    margin-top: 3px;
+}
+.btnSch:hover{
+    background-color: bisque;
+    transition: 700ms;
+}
+.btnCrt{
+    background-color: rgb(233, 177, 108);
+    border-radius: 9px;
+    color:rgb(30, 30, 31);
+    cursor: pointer;
+    float: right;
+    font-weight: 100;
+    height: 2rem;
+    margin-right: 1rem;
+    margin-top: 5rem;
+    font-family: 'Roboto Serif', sans-serif;
+}
+.btnCrt:hover{
+    background-color: bisque;
+    transition: 700ms;
+
+}
+@media (max-width: 600px) {
+    .btnCrt{
+        width: max-content;
+        position: absolute;
+        top: 10%;
+        left: 40%;
+    }
+}
+.searcher{
+    margin-top: 5rem;
+}

@@ -3,6 +3,7 @@ import { searchCountryName } from '../../redux/actions/actions';
 import { useState } from 'react';
 import {Link} from 'react-router-dom';
 import React from 'react';
+import styles from './NavBar.module.css';
 
 const Navbar = () => {
     const dispatch= useDispatch();
@@ -24,41 +25,19 @@ const Navbar = () => {
         dispatch(searchCountryName(country))
         setcountry("")
     }
+
     return (
-        <div>
-            <nav>
-                <div>
-                    <input
-                    type = "text"
-                    placeholder= "Buscar..."
-                    onChange={(e) => handleChange(e)}
-                    />
-                    <button type="submit" onClick={e => handleSubmit(e)}>Buscar</button>
-                </div>
-                <div>
-                    <label>Sort alphabetically: </label>
-                    <select onClick={(e) => handleSelectChange(e)}>
-                        <option value="asc">Ascendant</option>
-                        <option value="des">Descendant</option>
-                    </select>
-                </div>
-                <div>
-                    <label>Sort by poblation: </label>
-                    <select onClick={(e) => handleSelectChange(e)}>
-                        <option value="asc">Ascendant</option>
-                        <option value="des">Descendant</option>
-                    </select>
-                </div>
-                <div>
-                        <label>Sort by activities: </label>
-                    <select>
-                        <option value="surf">Surf</option>
-                        <option value="hiking">Hiking</option>
-                        <option value="walk">Walk</option>
-                    </select>
-                </div>
-            </nav>
-                <Link to='/postActivity'><button>Create Activity</button></Link>
+        <div className={styles.hero}>
+                        <Link to='/postActivity'><button className={styles.btnCrt}>Create Activity</button></Link>
+                    <div className={styles.nav}>
+                        <input
+                        className={styles.input}
+                        type = "text"
+                        placeholder= "Buscar..."
+                        onChange={(e) => handleChange(e)}
+                        />
+                    <button className={styles.btnSch} type="submit" onClick={e => handleSubmit(e)}>🔍</button>
+                    </div>
         </div>
     )
 };

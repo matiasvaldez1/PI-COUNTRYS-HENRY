@@ -63,3 +63,16 @@ export function postActivity(payload) {
     }
   };
 }
+export function orderName(payload) {
+  return {
+    type: "ORDERBYNAME",
+    payload,
+  };
+}
+
+export function orderbypop(payload) {
+  return {
+    type: "ORDERBYPOP",
+    payload,
+  };
+}

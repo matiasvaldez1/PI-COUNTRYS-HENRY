@@ -107,18 +107,19 @@ router.post("/activity",async (req,res)=>{
         duration,
         season,
         country} = req.body;
+        console.log(req.body)
     if(!name || !difficulty){
         res.status(404).send("Please complete the required fields.")
     }
     else{
         let actCreate = await Activities.create({
-            name, difficulty, duration, season
+            name, difficulty, duration, season, country
         })
     
         let dbCountry = await Country.findAll({
             where: { name: country },
         })
-        actCreated.addCountry(dbCountry);
+        actCreate.addCountry(dbCountry);
         res.status(200).send('Activity succesfully created');
     }
 })
