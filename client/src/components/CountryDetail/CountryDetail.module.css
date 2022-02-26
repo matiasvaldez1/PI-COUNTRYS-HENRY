@@ -1,10 +1,13 @@
 @import url('https://fonts.googleapis.com/css2?family=Roboto+Serif:wght@600&display=swap');
 
 .wrapper{
-    background-image: url(../utils/img6.jpg);
+    background-image: url(../utils/img1.jpg);
     position: absolute;
     width: 100%;
     height: 100vh;
+    background-position: 10% 90%;
+    background-repeat: no-repeat;
+    background-size: cover;
 }
 .container{
     background-color: aliceblue;

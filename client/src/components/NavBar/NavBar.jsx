@@ -9,11 +9,6 @@ const Navbar = () => {
     const dispatch= useDispatch();
     const [country, setcountry] = useState("");
 
-    function handleSelectChange(e){
-        e.preventDefault()
-        console.log(e.target.value)
-    }
-
     function handleChange(e){
         e.preventDefault()
         setcountry(e.target.value)

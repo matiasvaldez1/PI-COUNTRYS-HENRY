@@ -1,0 +1,22 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto+Serif:wght@600&display=swap');
+
+.background{
+    background-image: url(../utils/img3.jpg);
+    position: absolute;
+    width: 100%;
+    height: 100vh;
+    background-position: 90% 90%;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+.container{
+    width: 30%;
+    height: 80%;
+    margin: auto;
+    background-color: aliceblue;
+    font-family: 'Roboto Serif', sans-serif;
+}
+.centering{
+    display: flex;
+    justify-content: center;
+}

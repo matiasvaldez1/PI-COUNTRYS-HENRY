@@ -3,6 +3,7 @@ import { useState } from 'react';
 import {useDispatch, useSelector} from 'react-redux';
 import { postActivity } from '../../redux/actions/actions';
 import { Link } from 'react-router-dom';
+import styles from '../Activities/Form.module.css';
 
 const Form = () => {
   const dispatch = useDispatch();
@@ -62,40 +63,38 @@ const Form = () => {
 
 
   return (
-    <div>
-    <form>
+    <div className={styles.background}>
+    <form className={styles.container}>
       <h1>Post your activity</h1>
         <div>
-          <label>Name
+            <p>Name</p>
             <input
             type="text"
             value={form.name}
             name= "name"
             onChange={handleChange}/>
-          </label>
+          
         </div>
         <div>
-          <label>Country
+          <p>Country</p>
           <input 
           type="text"
           value={form.country}
           name="country"
           onChange={handleChange}
           />
-          </label>
         </div>
         <div>
-          <label>Duration
+          <p>Duration</p>
           <input 
           type="text"
           value={form.duration}
           name="duration"
           onChange={handleChange}
           />
-          </label>
         </div>
           <div>
-            <label>Difficulty
+            <p>Difficulty</p>
           <select value={form.difficulty} name="difficulty" onChange={handleChange}>
             <option>1</option>
             <option>2</option>
@@ -103,17 +102,15 @@ const Form = () => {
             <option>4</option>
             <option>5</option>
           </select>
-        </label>
         </div>
         <div>
-            <label>Season
+            <p>Season</p>
               <select value={form.season} name="season" onChange={handleChange}>
                 <option>Summer</option>
                 <option>Fall</option>
                 <option>Winter</option>
                 <option>Spring</option>
               </select>
-            </label>
             {errors.error && (
               <p style={{color: "red"}}>{errors.error}</p>
             )}
