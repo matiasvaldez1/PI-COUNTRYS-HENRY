@@ -1,6 +1,6 @@
 import React from 'react';
 import { useState } from 'react';
-import {useDispatch, useSelector} from 'react-redux';
+import {useDispatch} from 'react-redux';
 import { postActivity } from '../../redux/actions/actions';
 import { Link } from 'react-router-dom';
 import styles from '../Activities/Form.module.css';
@@ -64,7 +64,11 @@ const Form = () => {
 
   return (
     <div className={styles.background}>
-      <Link to="/home"><button className={`${styles.btnStyle} ${styles.btnMargin}`}>Go Home</button></Link>
+      <Link to="/home">
+        <button className={`${styles.btnStyle} ${styles.btnMargin}`}>
+        Go Home
+        </button>
+        </Link>
     <form className={styles.container}>
       <h1 className={styles.h1}>Post your activity</h1>
         <div className={styles.centering}>

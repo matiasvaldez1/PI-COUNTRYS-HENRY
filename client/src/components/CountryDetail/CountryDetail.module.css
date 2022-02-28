@@ -18,8 +18,18 @@
     width: 30%;
 }
 .img{
-    padding-left: 5rem;
+    display: flex;
+    justify-content: center;
+    margin: auto;
     width: 300px;
+}
+@media (max-width:1000px) {
+    .img{
+        width: 80%;
+    }
+    .container{
+        width: 40%;
+    }
 }
 .alignItems{
     display: flex;

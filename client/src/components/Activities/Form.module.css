@@ -64,3 +64,11 @@
     0%   { transform: translateX(-120%)}
     100% { transform: translateX(0)}
 }
+@media (max-width:1000px){
+    .container{
+        width: 40%;
+    }
+    .labelStyle{
+        width:min-content;
+    }
+}

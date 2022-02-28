@@ -4,7 +4,6 @@ import {useDispatch, useSelector} from 'react-redux';
 import React, { useEffect,useState } from 'react';
 import Paginado from '../Paginado/Paginado';
 import styles from '../Home/Home.module.css'
-import { Link } from 'react-router-dom';
 import Navbar from '../NavBar/NavBar';
 import Card from '../Card/Card';
 import Loading from '../Loading/Loading';
@@ -75,7 +74,7 @@ const Home = () => {
                 <div className={styles.filtersFlex}>
                 <div>
                     <label className={styles.label}>Sort by population: </label>
-                    <select className={styles.select}onChange={(e) => handleOrderByPop(e)}>
+                    <select className={styles.select} onChange={(e) => handleOrderByPop(e)}>
                         <option selected disabled>Highest to lower</option>
                         <option value="Ascendant population">Ascendant</option>
                         <option value="Descendant population">Descendant</option>
@@ -112,7 +111,7 @@ const Home = () => {
                         })}
                     </select>
                 </div>
-                <button className={styles.btn}nClick={(e) =>handleCountries(e)}>Reload all countries</button>
+                <button className={`${styles.btn} ${styles.res}`} onClick={(e) =>handleCountries(e)}>Reload all countries</button>
                 </div>
             </div>
             <div className={styles.background}>
@@ -120,7 +119,7 @@ const Home = () => {
                     <div className={styles.wrapper}>
                         {currentCountry.map(country =>{
                             return (
-                                <div className={styles.container}>
+                                <div key={country.id} className={styles.container}>
                                 <Card name={country.name} continent={country.continent} flag={country.img} key={country.id} id={country.id}/>
                                 </div>
                             )

@@ -19,13 +19,14 @@
     width: 40rem;
 }
 .input:hover{
-    background-color: aqua;
+    background-color: rgb(248, 255, 255);
 }
 .btnSch{
     border-radius: 10px;
     cursor: pointer;
     height: 3rem;
     margin-top: 3px;
+    
 }
 .btnSch:hover{
     background-color: bisque;
@@ -54,6 +55,9 @@
         position: absolute;
         top: 10%;
         left: 40%;
+    }
+    .nav{
+        padding-left: 0%;
     }
 }
 .searcher{

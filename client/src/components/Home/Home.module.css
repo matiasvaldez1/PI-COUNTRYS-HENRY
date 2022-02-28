@@ -4,8 +4,8 @@
     background-color: #C8CAA6;
 }
 .filtersPosition{
-    left: 10%;
     position: absolute;
+    margin-left: 10%;
     top: 30%;
 }
 .filtersFlex{
@@ -49,4 +49,17 @@
     margin: auto;
     max-width: 1200px;
     padding: 0 24px;
+}
+.res{
+    font-weight: 100;
+}
+@media (max-width: 700px) {
+    .res{
+        position: absolute;
+        transform: translateY(-10rem);
+        margin: auto;
+    }
+    .filtersPosition{
+        top: 50%;
+    }
 }

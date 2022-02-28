@@ -8,7 +8,7 @@ import styles from './NavBar.module.css';
 const Navbar = () => {
     const dispatch= useDispatch();
     const [country, setcountry] = useState("");
-
+    
     function handleChange(e){
         e.preventDefault()
         setcountry(e.target.value)
@@ -28,7 +28,7 @@ const Navbar = () => {
                         <input
                         className={styles.input}
                         type = "text"
-                        placeholder= "Buscar..."
+                        placeholder= "Search countries..."
                         onChange={(e) => handleChange(e)}
                         />
                     <button className={styles.btnSch} type="submit" onClick={e => handleSubmit(e)}>🔍</button>

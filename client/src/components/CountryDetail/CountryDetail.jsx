@@ -7,12 +7,12 @@ import React from 'react';
 
 const Countrydetail = () => {
     const {id} = useParams();
+    const dispatch = useDispatch();
 
     useEffect(() => {
         dispatch(getCountryDetail(id))
-    },[])
+    },[dispatch,id])
     
-    const dispatch = useDispatch();
     const oneCountry = useSelector((state) => state.countryDetail);
 /*     console.log(oneCountry) */
     return (

@@ -98,7 +98,6 @@ export default function rootReducer(state = initialState, action) {
                 countries: filter
             }
         case "FILTER_COUNTRIES_BY_CONTINENT":
-            let countries: state.countries;
             const statusFilter =
             action.payload === "All"
             ? allContinents
