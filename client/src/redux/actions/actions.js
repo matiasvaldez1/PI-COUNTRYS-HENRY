@@ -36,10 +36,10 @@ export function getCountryDetail(id){
       }
     }
 }
-/* export function getActivities() {
+export function getActivities() {
   return async function (dispatch) {
     try {
-      const response = await axios.get(`/activity`, {});
+      const response = await axios.get(`http://localhost:3001/activities`);
       return dispatch({
         type: "GET_ACTIVITIES",
         payload: response.data,
@@ -48,7 +48,7 @@ export function getCountryDetail(id){
       console.log(error);
     }
   };
-} */
+}
 
 export function postActivity(payload) {
   return async function (dispatch) {
@@ -73,6 +73,18 @@ export function orderName(payload) {
 export function orderbypop(payload) {
   return {
     type: "ORDERBYPOP",
+    payload,
+  };
+}
+export function filterActivity(payload){
+  return {
+      type: "FILTER_ACT",
+      payload
+  }
+}
+export function filterCountriesByContinent(payload) {
+  return {
+    type: "FILTER_COUNTRIES_BY_CONTINENT",
     payload,
   };
 }

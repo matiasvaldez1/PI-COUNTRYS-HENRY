@@ -1,3 +1,6 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto+Serif:wght@600&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=DM+Serif+Display&display=swap');
+
 .video{
     height: 100vh;
     object-fit: cover;
@@ -18,7 +21,13 @@
     top: 50%;
     width: 10rem;
     z-index: 1;
-
+    animation-name: btn1;
+    animation-duration: 2s;
+    animation-timing-function: ease-in-out;
+}
+@keyframes btn1 {
+    0%   { transform: translateX(-350%)}
+    100% { transform: translateX(0)}
 }
 .link:hover{
     background-color: aqua;
@@ -27,9 +36,18 @@
 }
 .text{
     color: rgb(255, 255, 255);
-    font-size: 4rem;
+    text-shadow: 10px 1px 2px black;
+    font-size: 5rem;
     font-weight: 700;
-    left: 35%;
+    font-family: 'DM Serif Display', serif;
+    left: 32%;
     position: absolute;
     top: 5%;
+    animation-name: btn2;
+    animation-duration: 2s;
+    animation-timing-function: ease-in-out;
+}
+@keyframes btn2 {
+    0%   { transform: translateX(+200%)}
+    100% { transform: translateX(0)}
 }

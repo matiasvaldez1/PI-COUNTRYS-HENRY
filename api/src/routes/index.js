@@ -100,6 +100,11 @@ router.get("/countries/:id",async (req,res)=>{
         : res.status(404).send("Country not found")
     }
 })
+router.get("/activities", async (req, res) => {
+        const activities= await Activities.findAll()
+        res.send(activities)
+        console.log(activities)
+  });
 router.post("/activity",async (req,res)=>{
     const {
         name,
@@ -107,11 +112,21 @@ router.post("/activity",async (req,res)=>{
         duration,
         season,
         country} = req.body;
-        console.log(req.body)
-    if(!name || !difficulty){
-        res.status(404).send("Please complete the required fields.")
-    }
-    else{
+
+/*         if(country.includes(",")){
+            separateCountry= country.split(",")
+            separateCountry.forEach(async (el) =>{
+                let actCreate = await Activities.create({
+                    name, difficulty, duration, season, el
+                })
+            
+                let dbCountry = await Country.findAll({
+                    where: { name: el },
+                })
+                actCreate.addCountry(dbCountry);
+                res.status(200).send('Activity succesfully created');
+            })
+        } */
         let actCreate = await Activities.create({
             name, difficulty, duration, season, country
         })
@@ -121,7 +136,7 @@ router.post("/activity",async (req,res)=>{
         })
         actCreate.addCountry(dbCountry);
         res.status(200).send('Activity succesfully created');
-    }
+
 })
 
 module.exports = router;

@@ -22,3 +22,12 @@
     display: flex;
     justify-content: center;
 }
+.img{
+    margin: auto;
+}
+.h1Fit{
+    display: flex;
+    justify-content: center;
+    font-size: 1.9rem;
+    padding: 3px;
+}

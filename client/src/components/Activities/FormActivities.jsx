@@ -64,36 +64,40 @@ const Form = () => {
 
   return (
     <div className={styles.background}>
+      <Link to="/home"><button className={`${styles.btnStyle} ${styles.btnMargin}`}>Go Home</button></Link>
     <form className={styles.container}>
-      <h1>Post your activity</h1>
-        <div>
+      <h1 className={styles.h1}>Post your activity</h1>
+        <div className={styles.centering}>
             <p>Name</p>
             <input
+            className={styles.labelStyle}
             type="text"
             value={form.name}
             name= "name"
             onChange={handleChange}/>
           
         </div>
-        <div>
+        <div className={styles.centering}>
           <p>Country</p>
           <input 
+          className={styles.labelStyle}
           type="text"
           value={form.country}
           name="country"
           onChange={handleChange}
           />
         </div>
-        <div>
+        <div className={styles.centering}>
           <p>Duration</p>
-          <input 
+          <input
+          className={styles.labelStyle} 
           type="text"
           value={form.duration}
           name="duration"
           onChange={handleChange}
           />
         </div>
-          <div>
+          <div className={styles.centering}>
             <p>Difficulty</p>
           <select value={form.difficulty} name="difficulty" onChange={handleChange}>
             <option>1</option>
@@ -103,7 +107,7 @@ const Form = () => {
             <option>5</option>
           </select>
         </div>
-        <div>
+        <div className={styles.centering}>
             <p>Season</p>
               <select value={form.season} name="season" onChange={handleChange}>
                 <option>Summer</option>
@@ -115,9 +119,10 @@ const Form = () => {
               <p style={{color: "red"}}>{errors.error}</p>
             )}
         </div>
-        <button type='submit' onClick={handleSubmit}>Submit</button>
+        <div className={styles.btnPosition}>
+        <button className={styles.btnStyle} type='submit' onClick={handleSubmit}>Submit</button>
+        </div>
     </form>
-        <Link to="/home"><button>Go Home</button></Link>
     </div>
   )
 }

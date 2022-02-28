@@ -18,6 +18,9 @@
     height: 3rem;
     width: 40rem;
 }
+.input:hover{
+    background-color: aqua;
+}
 .btnSch{
     border-radius: 10px;
     cursor: pointer;
