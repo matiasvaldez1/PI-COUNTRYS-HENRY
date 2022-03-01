@@ -65,7 +65,7 @@ select{
         margin: auto;
     }
     .filtersPosition{
-        top: 50%;
+        top: 30%;
     }
     select{
         width: 2rem;
