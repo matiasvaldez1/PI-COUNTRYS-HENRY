@@ -72,7 +72,7 @@ const Home = () => {
             <Navbar />
             <div className={styles.filtersPosition}>
                 <div className={styles.filtersFlex}>
-                <div>
+                <div className={styles.div}>
                     <label className={styles.label}>Sort by population: </label>
                     <select className={styles.select} onChange={(e) => handleOrderByPop(e)}>
                         <option selected disabled>Highest to lower</option>

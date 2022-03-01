@@ -5,17 +5,22 @@
 }
 .filtersPosition{
     position: absolute;
-    margin-left: 10%;
     top: 30%;
+    left: 50%;
+    transform: translate(-50%, -50%);
 }
 .filtersFlex{
     display: flex;
     justify-content: space-evenly;
+    gap: 1rem;
+    max-width: max-content;
 }
 .label{
     color: aliceblue;
-    font-family: 'Roboto Serif', sans-serif;
-    margin-left: 1rem;
+    font-size:medium;
+}
+select{
+    max-width: min-content;
 }
 .btn{
     background-color: rgb(233, 177, 108);
@@ -61,5 +66,8 @@
     }
     .filtersPosition{
         top: 50%;
+    }
+    select{
+        width: 2rem;
     }
 }

@@ -40,7 +40,7 @@ const Countrydetail = () => {
                             {el.activities.map(act =>{
                                 return (
                                     <>
-                                    <h1 className={`${styles.alignItems} ${styles.h1Activity}`}>Activities</h1>
+                                    <h1 style={{margin: "0"}}className={`${styles.alignItems} ${styles.h1Activity}`}>Activities</h1>
                                     <div className={styles.activitiesDiv}key={act.id}>
                                     <p>Activity: {act.name}</p>
                                     <p>Difficulty: {act.difficulty}</p>

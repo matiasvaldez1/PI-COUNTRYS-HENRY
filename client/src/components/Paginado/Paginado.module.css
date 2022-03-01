@@ -18,7 +18,7 @@
 @media (max-width: 1000px){
     .ul{
         display: grid;
-        grid-template-columns: repeat(auto-fill,minmax(50px,1fr));
+        grid-template-columns: repeat(auto-fill,minmax(40px,1fr));
         max-width: 1200px;
     }
 }
