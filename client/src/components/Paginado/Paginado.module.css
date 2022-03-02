@@ -15,6 +15,9 @@
     background-color: aquamarine;
     cursor: pointer;
 }
+.displaynone{
+    display: none;
+}
 @media (max-width: 1000px){
     .ul{
         display: grid;

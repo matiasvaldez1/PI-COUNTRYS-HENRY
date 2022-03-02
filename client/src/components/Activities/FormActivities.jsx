@@ -10,7 +10,7 @@ const Form = () => {
   const [errors, setErrors] = useState({});
   const [form,setForm] = useState({
     name: "",
-    country: "",
+    country: [],
     difficulty: "",
     duration: "",
     season: "",
@@ -51,7 +51,7 @@ const Form = () => {
       alert("Actividad creada!")
     setForm({
       name: "",
-      country: "",
+      country: [],
       difficulty: "",
       duration: "",
       season: ""

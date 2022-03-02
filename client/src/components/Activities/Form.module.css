@@ -52,7 +52,7 @@
 .btnPosition{
     display: flex;
     justify-content: center;
-    padding-top: 4rem;
+    padding-top: 2rem;
 }
 .btnMargin{
     margin-top: 2rem;

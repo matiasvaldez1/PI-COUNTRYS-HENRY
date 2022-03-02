@@ -3,15 +3,15 @@ import styles from './Paginado.module.css';
 
 export default function Paginado({countryPerPage, allCountries, paginate}) {
     const pageNumber = []
-    for (let i = 0; i <= Math.ceil(allCountries / countryPerPage); i++) {
-        pageNumber.push(i+1);
+    for (let i = 1; i <= Math.ceil(allCountries / countryPerPage); i++) {
+        pageNumber.push(i);
     }
     return (
         <nav>
                 <ul className={styles.ul}>
                     {pageNumber && pageNumber.map(el =>(
                         <li className={styles.li} key={el}>
-                            <button className={styles.btn}onClick={() => paginate(el)}>{el}</button>
+                            <button className={el > 25 ? styles.displaynone : styles.btn}onClick={() => paginate(el)}>{el <= 25 ? el : ""}</button>
                         </li>
                     ))}
                 </ul>

@@ -52,7 +52,6 @@ router.get("/countries",async (req,res)=>{
         const dbCountry = await Country.findAll({
             where: {name: {[Op.iLike]: `%${name}%`}}
             })
-        console.log(dbCountry)
         return res.json(dbCountry)
     }
 
@@ -103,7 +102,6 @@ router.get("/countries/:id",async (req,res)=>{
 router.get("/activities", async (req, res) => {
         const activities= await Activities.findAll()
         res.send(activities)
-        console.log(activities)
   });
 router.post("/activity",async (req,res)=>{
     const {
@@ -114,8 +112,11 @@ router.post("/activity",async (req,res)=>{
         country} = req.body;
 
 /*         if(country.includes(",")){
-            separateCountry= country.split(",")
+            console.log(country)
+            let separateCountry= country.split(",")
+            console.log(separateCountry)
             separateCountry.forEach(async (el) =>{
+                console.log(el)
                 let actCreate = await Activities.create({
                     name, difficulty, duration, season, el
                 })

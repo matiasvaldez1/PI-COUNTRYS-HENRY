@@ -3,24 +3,18 @@
 .background{
     background-color: #C8CAA6;
 }
-.filtersPosition{
-    position: absolute;
-    top: 30%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-}
-.filtersFlex{
+.filters{
     display: flex;
     justify-content: space-evenly;
     gap: 1rem;
-    max-width: max-content;
+    position: absolute;
+    top: 30%;
+    left: 15%;
+
 }
 .label{
     color: aliceblue;
     font-size:medium;
-}
-select{
-    max-width: min-content;
 }
 .btn{
     background-color: rgb(233, 177, 108);
@@ -58,16 +52,12 @@ select{
 .res{
     font-weight: 100;
 }
-@media (max-width: 700px) {
+@media (max-width: 600px) {
+    .filters{
+        display: flex;
+        flex-wrap: wrap;
+    }
     .res{
-        position: absolute;
-        transform: translateY(-10rem);
         margin: auto;
-    }
-    .filtersPosition{
-        top: 30%;
-    }
-    select{
-        width: 2rem;
     }
 }

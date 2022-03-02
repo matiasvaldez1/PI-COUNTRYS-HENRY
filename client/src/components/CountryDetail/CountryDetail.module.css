@@ -16,7 +16,14 @@
     height: 90%;
     margin: auto;
     width: 30%;
+    animation-name: example;
+    animation-duration: 2s;
+    animation-timing-function: ease-in-out;
 }
+@keyframes example {
+    0%   { transform: translateY(-120%)}
+    100% { transform: translateY(0)}
+  }
 .img{
     display: flex;
     justify-content: center;
@@ -29,7 +36,7 @@
     }
     .container{
         width: 80%;
-        height: 70%;
+        height: 80%;
     }
 }
 .alignItems{
@@ -41,7 +48,7 @@ p{
     justify-content: center;
 }
 h1{
-    padding-top: 2rem;
+    padding-top: 1rem;
 }
 .activitiesDiv{
     display: flex;

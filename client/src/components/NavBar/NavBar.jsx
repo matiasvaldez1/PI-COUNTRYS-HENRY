@@ -12,7 +12,6 @@ const Navbar = () => {
     function handleChange(e){
         e.preventDefault()
         setcountry(e.target.value)
-        console.log(country)
     }
 
     function handleSubmit(e){

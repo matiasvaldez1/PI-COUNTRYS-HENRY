@@ -12,20 +12,21 @@ const Home = () => {
     const dispatch = useDispatch();
     const allCountries = useSelector((state) => state.countries);
     const allActivities = useSelector((state) => state.activities);
-    console.log(allActivities)
     const [ordenado, setOrdenado] = useState("");
     const [currentPage, setcurrentPage] = useState(1);
-    const [countryPerPage, setcountryPerPage] = useState(10 || 11);
+    const [countryPerPage, setcountryPerPage] = useState(9);
     const indexOfLastCountry = currentPage * countryPerPage;
     const indexOfFirstCountry= indexOfLastCountry - countryPerPage;
     const currentCountry = allCountries?.slice(indexOfFirstCountry,indexOfLastCountry);
-    /* const extractCountry= currentPage === 1 ? currentCountry.pop() : ""; */
-    /* const insertCountry= currentPage === 2 ? currentCountry.push(extractCountry) : ""; */
-
-
 
         function paginate(pageNumber){
             setcurrentPage(pageNumber)
+            if(pageNumber >= 2){
+                setcountryPerPage(10)
+            }
+            else{
+                setcountryPerPage(9)
+            }
         }   
     
 
@@ -70,8 +71,7 @@ const Home = () => {
         {currentCountry.length ? 
         <div className={styles.background}>
             <Navbar />
-            <div className={styles.filtersPosition}>
-                <div className={styles.filtersFlex}>
+                <div className={styles.filters}>
                 <div className={styles.div}>
                     <label className={styles.label}>Sort by population: </label>
                     <select className={styles.select} onChange={(e) => handleOrderByPop(e)}>
@@ -104,8 +104,9 @@ const Home = () => {
                     </select>
                 </div>
                 <div>
-                        <label className={styles.label}>Sort by activities: </label>
+                        <label className={styles.label}>Sort by act: </label>
                     <select onChange={(e) => handleOrderByAct(e)}>
+                        <option>Select</option>
                         {allActivities && allActivities.map(e=>{
                             return <option>{e.name}</option>
                         })}
@@ -113,7 +114,6 @@ const Home = () => {
                 </div>
                 <button className={`${styles.btn} ${styles.res}`} onClick={(e) =>handleCountries(e)}>Reload all countries</button>
                 </div>
-            </div>
             <div className={styles.background}>
                 {ordenado? <h1 className={styles.h1}>{ordenado}</h1>: <h1 className={styles.h1}>Countries</h1>}
                     <div className={styles.wrapper}>
@@ -133,8 +133,8 @@ const Home = () => {
                                 />
             </div>
         </div>
-         : <Loading/ >}
-         </>
+        : <Loading/ >}
+        </>
     );
 }
 
