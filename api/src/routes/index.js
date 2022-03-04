@@ -111,12 +111,9 @@ router.post("/activity",async (req,res)=>{
         season,
         country} = req.body;
 
-/*         if(country.includes(",")){
-            console.log(country)
-            let separateCountry= country.split(",")
-            console.log(separateCountry)
-            separateCountry.forEach(async (el) =>{
-                console.log(el)
+/*         if(country.includes(","){
+            var countries= country.split("")
+            countries.forEach(async (el) =>{
                 let actCreate = await Activities.create({
                     name, difficulty, duration, season, el
                 })
@@ -125,17 +122,18 @@ router.post("/activity",async (req,res)=>{
                     where: { name: el },
                 })
                 actCreate.addCountry(dbCountry);
-                res.status(200).send('Activity succesfully created');
             })
-        } */
-        let actCreate = await Activities.create({
-            name, difficulty, duration, season, country
-        })
-    
-        let dbCountry = await Country.findAll({
-            where: { name: country },
-        })
-        actCreate.addCountry(dbCountry);
+        }
+        else { */
+            let actCreate = await Activities.create({
+                name, difficulty, duration, season, country
+            })
+        
+            let dbCountry = await Country.findAll({
+                where: { name: country },
+            })
+            actCreate.addCountry(dbCountry);
+
         res.status(200).send('Activity succesfully created');
 
 })

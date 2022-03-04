@@ -1,13 +1,16 @@
-import { useDispatch } from 'react-redux';
+import { useDispatch, useSelector} from 'react-redux';
 import { searchCountryName } from '../../redux/actions/actions';
-import { useState } from 'react';
+import { getCountries } from '../../redux/actions/actions';
 import {Link} from 'react-router-dom';
-import React from 'react';
+import React, {useEffect, useState} from 'react';
 import styles from './NavBar.module.css';
 
 const Navbar = () => {
     const dispatch= useDispatch();
     const [country, setcountry] = useState("");
+    const allCountries = useSelector((state) => state.allCountries);
+    const countriesNames = allCountries.map(e => e.name)
+    console.log(countriesNames)
     
     function handleChange(e){
         e.preventDefault()
@@ -16,9 +19,18 @@ const Navbar = () => {
 
     function handleSubmit(e){
         e.preventDefault()
+        if(countriesNames.includes(country)){
         dispatch(searchCountryName(country))
         setcountry("")
+        }
+        else{
+            alert("Este country no existe")
+        }
     }
+
+    useEffect(() => {
+        dispatch(getCountries());
+        }, []);
 
     return (
         <div className={styles.hero}>

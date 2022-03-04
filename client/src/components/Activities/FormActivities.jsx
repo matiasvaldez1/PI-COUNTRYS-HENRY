@@ -1,12 +1,15 @@
-import React from 'react';
+import React,{useEffect} from 'react';
 import { useState } from 'react';
-import {useDispatch} from 'react-redux';
+import {useDispatch, useSelector} from 'react-redux';
 import { postActivity } from '../../redux/actions/actions';
 import { Link } from 'react-router-dom';
 import styles from '../Activities/Form.module.css';
+import { getCountries } from '../../redux/actions/actions';
 
 const Form = () => {
   const dispatch = useDispatch();
+  const allCountries = useSelector((state) => state.countries);
+  const countriesNames = allCountries.map(e => e.name)
   const [errors, setErrors] = useState({});
   const [form,setForm] = useState({
     name: "",
@@ -17,11 +20,22 @@ const Form = () => {
   })
   function validate(form) {
     let errors = {};
-    if (!form.name || !form.country || !form.duration) {
-      errors.error = "Please complete all required fields"
+    if (!form.name || !form.country || !form.duration || !form.difficulty || !form.season) {
+      errors.error = "Required to complete all fields"
+    }
+    if(form.name.length < 2 ){
+      errors.error = "Please enter a valid name"
+    }
+    if(!countriesNames.includes(form.country)){
+      errors.error = "Please enter a valid country"
     }
     return errors;
   }
+
+  useEffect(() => {
+    dispatch(getCountries())
+  }, [])
+  
   
  
   function handleChange(e) {
@@ -75,6 +89,7 @@ const Form = () => {
             <p>Name</p>
             <input
             className={styles.labelStyle}
+            placeholder="Name of the activity"
             type="text"
             value={form.name}
             name= "name"
@@ -85,6 +100,7 @@ const Form = () => {
           <p>Country</p>
           <input 
           className={styles.labelStyle}
+          placeholder="Country name respecting capital letters"
           type="text"
           value={form.country}
           name="country"
@@ -95,6 +111,7 @@ const Form = () => {
           <p>Duration</p>
           <input
           className={styles.labelStyle} 
+          placeholder="Ej: 10 minutes"
           type="text"
           value={form.duration}
           name="duration"
