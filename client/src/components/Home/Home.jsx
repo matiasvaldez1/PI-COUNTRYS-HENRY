@@ -52,8 +52,6 @@ const Home = () => {
         dispatch(orderbypop(e.target.value));
         setcurrentPage(1);
         setOrdenado(`Ordered by  ${e.target.value}`);
-/*         e.target.value === "Ascendantpop" || "Descendantpop"? */
-/*         :setOrdenado("Countries"); */
 }
         function handleOrderByAct(e){
             e.preventDefault()

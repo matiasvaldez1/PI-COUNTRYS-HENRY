@@ -136,10 +136,10 @@ const Form = () => {
                 <option>Winter</option>
                 <option>Spring</option>
               </select>
+        </div>
             {errors.error && (
               <p style={{color: "red"}}>{errors.error}</p>
             )}
-        </div>
         <div className={styles.btnPosition}>
         <button className={styles.btnStyle} type='submit' onClick={handleSubmit}>Submit</button>
         </div>

@@ -39,7 +39,7 @@ const Navbar = () => {
                         <input
                         className={styles.input}
                         type = "text"
-                        placeholder= "Search countries..."
+                        placeholder= "Search countries respecting capital letters..."
                         onChange={(e) => handleChange(e)}
                         />
                     <button className={styles.btnSch} type="submit" onClick={e => handleSubmit(e)}>🔍</button>

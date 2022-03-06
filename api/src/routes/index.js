@@ -103,7 +103,7 @@ router.get("/activities", async (req, res) => {
         const activities= await Activities.findAll()
         res.send(activities)
   });
-router.post("/activity",async (req,res)=>{
+  router.post("/activity",async (req,res)=>{
     const {
         name,
         difficulty,
